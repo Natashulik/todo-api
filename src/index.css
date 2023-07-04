@@ -1,13 +1,313 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
+
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
 }
 
-code {
+body {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
+  background-image: url("sky.jpg");
+  background-size: cover;
+ }
+
+
+.todo_wrapper{
+  margin: 30px auto;
+  width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 3px 15px #0000001a;
+  overflow: hidden;
+  min-height: 610px;
+  background-color: rgb(255, 235, 235);
+ /* box-shadow: 5px 5px 20px 0px rgba(174, 130, 167, 0.3);*/
+ 
+}
+
+.main-title {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-family: 'Caveat';
+  font-weight: 700;
+  font-size: 40px;
+
+}
+
+.span_girls {
+  font-size: 42px;
+}
+
+.new-task_block {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.new-task {
+  width: 380px;
+  height: 45px;
+  margin-right: 10px;
+  font-family: 'Caveat';
+  font-weight: 500;
+  font-size: 22px;
+  padding-left: 10px;
+  border-radius: 8px;
+  border: 1px solid gray; 
+}
+
+input.new-task:focus,
+input.new-task:hover {
+  border: 2px solid rgb(106, 105, 105); 
+}
+
+.new-task::placeholder {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+  font-size: 16px;
+  padding-left: 15px;
+}
+
+.task-wrap {
+  display: flex;
+  margin-bottom: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: rgb(252, 200, 200);
+  border-radius: 20px;
+}
+
+.checkbox {
+  margin-left: 10px;
+  width: 15px;
+  margin-top: 5px;
+}
+
+.task-title,
+.input-task-title {
+  margin-left: 10px;
+  width: 370px;
+  height: 45px;
+  font-family: 'Caveat';
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 45px;
+  overflow: hidden;
+  background-color: rgb(252, 200, 200);
+  border: 1px solid pink;
+}
+
+.decor {
+   text-decoration-line: line-through;
+   text-decoration-thickness: 1.5px;
+   text-decoration-color: rgb(68, 68, 68);
+
+ }
+
+p.task-title {
+  line-height: 45px;
+}
+
+.button-close,
+.button-edit {
+  width: 30px;
+  height: 35px;
+  margin-left: 5px;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: none;
+  background-color:whitesmoke;
+}
+
+.button-close:hover,
+.button-edit:hover,
+.button-add:hover {
+  background-color: rgb(242, 233, 242);
+}
+
+.button-close:active,
+.button-edit:active,
+.button-add:active {
+  background-color: rgb(234, 220, 234);
+}
+
+.button-add {
+  width: 70px;
+  padding: 6px;
+  border-radius: 10px;
+  background-color:whitesmoke;
+  border: 1px solid rgba(126, 126, 126, 0.6);
+}
+
+.button-all,
+.button-private,
+.button-job {
+  padding: 6px;
+  border-radius: 10px;
+  background-color:whitesmoke;
+  margin-left: 10px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(126, 126, 126, 0.6);
+}
+
+.button-all:hover,
+.button-private:hover,
+.button-job:hover {
+  background-color: rgb(242, 233, 242);
+}
+
+.button-all {
+  margin-left: 20px;
+}
+
+.selected,
+.button-all:active,
+.button-private:active,
+.button-job:active {
+  background-color: rgb(234, 220, 234);
+}
+
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+input:focus,
+input:hover,
+input:active,
+input:visited,
+input:focus-visible,
+select:focus-visible {
+  outline: none;
+  border: none;
+}
+
+.select,
+select:focus {
+  margin-left: 100px;
+  height: 25px;
+  border-radius: 3px;
+  border: 1px solid rgba(126, 126, 126, 0.6);
+
+}
+
+/*------login and registration---------*/
+
+.form_login,
+.form_register {
+  width: 350px;
+  height: 460px;
+  margin: 40px auto;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 235, 235);
+  box-shadow: 5px 5px 20px 0px rgba(174, 130, 167, 0.3);
+  border-radius: 5px;
+}
+
+.form_title {
+  margin: 10px 0;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600; 
+  color: rgb(92, 87, 92)
+}
+
+.email_block,
+.password_block,
+.username_block,
+.age_block,
+.error_block {
+   display: flex;
+   width: 250px;
+   height: 35px;
+   margin-bottom: 15px;
+  }
+  .gender_block {
+    display: flex;
+    width: 250px;
+    height: 25px;
+    margin-bottom: 15px;
+  }
+
+.error_block {
+  color: rgb(231, 3, 3);
+  text-align: center;
+  margin-top: 15px;
+  }
+
+
+.redirect_block,
+.password_info {
+  display: flex;
+  color:gray;
+  margin-top: 15px;
+  width: 250px;
+  font-size: 14px;
+
+}
+
+.redirect_link {
+  margin-left: 5px;
+  
+}
+
+.redirect_link:hover {
+  color:rgb(171, 74, 171);
+}
+
+
+.field_name {
+  width: 85px;
+  line-height: 35px;
+  color: rgb(92, 87, 92);
+
+}
+
+.log_input { 
+  width: 162px;
+  height: 30px;
+  border-radius: 5px;
+  padding-left: 10px;
+  margin-top: 3px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  border: 1px solid rgb(106, 105, 105); 
+}
+
+input.log_input:focus,
+input.log_input:hover {
+  border: 2px solid rgb(106, 105, 105); 
+}
+
+.button_login,
+.button_register {
+  width: 180px;
+  padding: 6px;
+  border-radius: 5px;
+  color: rgb(35, 34, 35);
+  font-size: 14px;
+  background-color: rgb(252, 200, 200);
+  border: 1px solid rgb(252, 200, 200);
+}
+
+.button_login:hover,
+.button_login:active,
+.button_register:hover,
+.button_register:active  {
+  background-color: rgb(254, 185, 200);
+  border: 1px solid rgb(254, 185, 200);
+}
+
+.radio_button {
+  margin-right: 15px;
+  color: rgb(92, 87, 92);
+  font-size: 16px;
+  padding-top: 7px;
 }
