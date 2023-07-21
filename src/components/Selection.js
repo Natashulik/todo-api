@@ -1,7 +1,6 @@
 import { useState } from "react"
 
 const Selection = ({sortType, setSortType, selectedButton, setSelectedButton}) => {
-
      const handleSort = (event) => {
      setSortType(event.target.value);
     }

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { fetchTasks } from "../helpers/fetchTasks";
+import { updateTasks } from "../helpers/updateTasks";
 
-function Task({ item, fetchData }) {
+function Task({ item, setTasks,  selectedButton, sortType }) {
   const [isEdit, setIsEdit] = useState(false);
   const [newTitle, setNewTitle] = useState(item.title);
 
@@ -15,12 +17,11 @@ function Task({ item, fetchData }) {
         },
       })
       const data = await result.json();
-      console.log(data)
-      fetchData(); 
-    } catch (error) {
+      const res = await fetchTasks();
+      updateTasks(selectedButton,  sortType, setTasks);
+     } catch (error) {
       alert(error)
-    }
-  }
+    } }
 
   const handleEdit = async (newTitle, id) => {
     const token = localStorage.getItem('token');
@@ -36,13 +37,11 @@ function Task({ item, fetchData }) {
       })
       })
       const data = await result.json();
-      console.log(data)
-  
-      fetchData();
+      const res = await fetchTasks();
+      updateTasks(selectedButton,  sortType, setTasks);
     } catch (error) {
       alert(error)
-    }
-  }
+    }  }
 
   const toggle = (id) => {
     if (!isEdit) {
@@ -52,7 +51,6 @@ function Task({ item, fetchData }) {
       setTimeout(()=>setIsEdit(false), 500 );
     }
   }
-
 
   const handleCompleted =  async (id, isCompleted) => {
    const token = localStorage.getItem('token');
@@ -68,9 +66,9 @@ function Task({ item, fetchData }) {
       })
       })
       const data = await result.json();
-      console.log(data)
-        fetchData();
-    } catch (error) {
+      const res = await fetchTasks();
+      updateTasks(selectedButton,  sortType, setTasks);
+     } catch (error) {
       alert(error)
     }
   }
@@ -83,9 +81,6 @@ function Task({ item, fetchData }) {
       <p className={item.isCompleted ? "task-title decor" : "task-title"}>{item.title}</p>}
     <button type="submit" onClick={() => toggle(item.id)} className="button-edit">{isEdit ? "✔" : "✎"}</button>
     <button type="submit" onClick={(event) => handleDelete(event, item.id)} className="button-close">✖</button>
-  </div>
-}
-
-
+  </div>}
 
 export default Task;

@@ -1,10 +1,13 @@
 //  email: "fdsvjnoi@mail.ru"
 //  password: "jfghdik_kd4TT"
-//  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZkc3Zqbm9pQG1haWwucnUiLCJpZCI6ODMsImlhdCI6MTY4ODA2OTAzNn0.rkdpxJQ9ecvmhPnlOWLt2MGqFlGwC0tcBOdTAWs_V9E
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+
+require('dotenv').config();
+console.log(process.env)
+console.log(process.env.REACT_APP_URL_LOGIN)
 
 function Login() {
     const navigate = useNavigate();
@@ -14,12 +17,9 @@ function Login() {
 
 const handleSubmit = async(event) => {
     event.preventDefault();
-    console.log('--handleSubmit--');
-    console.log(email)
-    console.log(password)
-
+  
     try {
-        const result = await fetch('https://todo-redev.herokuapp.com/api/auth/login', {
+        const result = await fetch(process.env.REACT_APP_URL_LOGIN, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -44,8 +44,7 @@ const handleSubmit = async(event) => {
         console.log(error.message)
         setIsError(true);
     }
-   
-}
+  }
    
   return (
     <form onSubmit={event => handleSubmit(event)}>
