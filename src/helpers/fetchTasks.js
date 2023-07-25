@@ -1,7 +1,7 @@
 
 export const fetchTasks = async () => {
     const token = localStorage.getItem('token');
-    const result = await fetch(process.env.REACT_APP_URL_LOGIN, {
+    const result = await fetch(process.env.REACT_APP_URL_TODOS, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`

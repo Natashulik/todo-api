@@ -14,7 +14,7 @@ function Registration() {
 const handleSubmit = async (event) => {
     event.preventDefault();
     try{
-        const result = await fetch('https://todo-redev.herokuapp.com/api/users/register', {
+        const result = await fetch(process.env.REACT_APP_URL_REGISTER, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -33,7 +33,7 @@ const handleSubmit = async (event) => {
         if(!data.id) {
           throw new Error(data.message);
         } else {
-          const result = await fetch('https://todo-redev.herokuapp.com/api/auth/login', {
+          const result = await fetch(process.env.REACT_APP_URL_LOGIN, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

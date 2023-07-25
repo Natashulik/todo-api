@@ -10,7 +10,7 @@ function Task({ item, setTasks,  selectedButton, sortType }) {
     event.preventDefault();
     const token = localStorage.getItem('token');
     try {
-      const result = await fetch(`https://todo-redev.herokuapp.com/api/todos/${id}`, {
+      const result = await fetch(`${process.env.REACT_APP_URL_TODOS}/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`
@@ -26,7 +26,7 @@ function Task({ item, setTasks,  selectedButton, sortType }) {
   const handleEdit = async (newTitle, id) => {
     const token = localStorage.getItem('token');
     try {
-      const result = await fetch(`https://todo-redev.herokuapp.com/api/todos/${id}`, {
+      const result = await fetch(`${process.env.REACT_APP_URL_TODOS}/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +55,7 @@ function Task({ item, setTasks,  selectedButton, sortType }) {
   const handleCompleted =  async (id, isCompleted) => {
    const token = localStorage.getItem('token');
     try {
-      const result = await fetch(`https://todo-redev.herokuapp.com/api/todos/${id}/isCompleted`, {
+      const result = await fetch(`${process.env.REACT_APP_URL_TODOS}/${id}/isCompleted`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
