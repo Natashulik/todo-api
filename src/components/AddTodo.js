@@ -11,7 +11,7 @@ function AddTodo({setTasks, selectedButton, sortType}) {
     const token = localStorage.getItem('token');
  
     try {
-        const result = await fetch('https://todo-redev.herokuapp.com/api/todos', {
+        const result = await fetch(process.env.REACT_APP_URL_TODOS, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
